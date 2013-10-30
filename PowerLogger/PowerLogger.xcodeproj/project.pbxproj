@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3430E9031820910200780909 /* SleepMessageReciever.m in Sources */ = {isa = PBXBuildFile; fileRef = 3430E9021820910200780909 /* SleepMessageReciever.m */; };
+		3430E9051820947B00780909 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3430E9041820947B00780909 /* AppKit.framework */; };
 		3499CEFF18208FA80017757C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3499CEFE18208FA80017757C /* Foundation.framework */; };
 		3499CF0218208FA80017757C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3499CF0118208FA80017757C /* main.m */; };
 		3499CF0618208FA80017757C /* PowerLogger.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3499CF0518208FA80017757C /* PowerLogger.1 */; };
@@ -26,6 +28,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3430E9011820910200780909 /* SleepMessageReciever.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepMessageReciever.h; sourceTree = "<group>"; };
+		3430E9021820910200780909 /* SleepMessageReciever.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepMessageReciever.m; sourceTree = "<group>"; };
+		3430E9041820947B00780909 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		3499CEFB18208FA80017757C /* PowerLogger */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PowerLogger; sourceTree = BUILT_PRODUCTS_DIR; };
 		3499CEFE18208FA80017757C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3499CF0118208FA80017757C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -38,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3430E9051820947B00780909 /* AppKit.framework in Frameworks */,
 				3499CEFF18208FA80017757C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -45,6 +51,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3430E9001820909900780909 /* MessageReciever */ = {
+			isa = PBXGroup;
+			children = (
+				3430E9011820910200780909 /* SleepMessageReciever.h */,
+				3430E9021820910200780909 /* SleepMessageReciever.m */,
+			);
+			name = MessageReciever;
+			sourceTree = "<group>";
+		};
 		3499CEF218208FA80017757C = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +80,7 @@
 		3499CEFD18208FA80017757C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3430E9041820947B00780909 /* AppKit.framework */,
 				3499CEFE18208FA80017757C /* Foundation.framework */,
 			);
 			name = Frameworks;
@@ -73,6 +89,7 @@
 		3499CF0018208FA80017757C /* PowerLogger */ = {
 			isa = PBXGroup;
 			children = (
+				3430E9001820909900780909 /* MessageReciever */,
 				3499CF0118208FA80017757C /* main.m */,
 				3499CF0518208FA80017757C /* PowerLogger.1 */,
 				3499CF0318208FA80017757C /* Supporting Files */,
@@ -139,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3430E9031820910200780909 /* SleepMessageReciever.m in Sources */,
 				3499CF0218208FA80017757C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,6 +269,7 @@
 				3499CF0B18208FA80017757C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
