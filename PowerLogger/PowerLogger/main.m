@@ -15,16 +15,10 @@ int main(int argc, const char * argv[])
     @autoreleasepool {
         
         SleepMessageReciever * smr = [[SleepMessageReciever alloc] init];
-        
         [smr initializeObservers];
         
-        while (TRUE) {
-            
-        }
-        
-        NSLog(@"Went to sleep");
-        // insert code here...
-       // NSLog(@"Hello, World!");
+        // very, very important... 
+        [[NSRunLoop currentRunLoop] run];
         
     }
     return 0;

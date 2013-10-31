@@ -33,16 +33,11 @@
 
 - (void)initializeObservers
 {
-    [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self selector:@selector(receiveSleepMessage:) name: NSWorkspaceWillSleepNotification object:NULL];
+     [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self selector:@selector(receiveSleepMessage:) name: NSWorkspaceWillSleepNotification object:nil];
     NSLog(@"registered sleeper agent");
     
-    [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self selector:@selector(receiveWakeMessage:) name: NSWorkspaceDidWakeNotification object:NULL];
+    [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self selector:@selector(receiveWakeMessage:) name: NSWorkspaceDidWakeNotification object:nil];
     NSLog(@"registered waker agent");
-}
-
-- (void)awakeFromNib
-{
-    [self initializeObservers];
 }
 
 @end
