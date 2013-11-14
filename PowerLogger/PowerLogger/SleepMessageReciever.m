@@ -7,28 +7,22 @@
 //
 
 #import "SleepMessageReciever.h"
+#import "FileLogger.h"
 
 @implementation SleepMessageReciever
 
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        [self setAsleep:FALSE];
-    }
-    return self;
-}
+
 
 - (void)receiveSleepMessage:(NSNotification *)message
 {
     NSLog(@"received Sleep Message: %@", [message name]);
-    [self setAsleep:TRUE];
+    [[FileLogger defaultLogger] logEvent:@"SLEEP"];
 }
 
 - (void)receiveWakeMessage:(NSNotification *)message
 {
     NSLog(@"Reveived Wake Message: %@", [message name]);
-    [self setAsleep:FALSE];
+    [[FileLogger defaultLogger] logEvent:@"AWAKE"];
 }
 
 - (void)initializeObservers

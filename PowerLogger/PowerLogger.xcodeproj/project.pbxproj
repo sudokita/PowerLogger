@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		342254AE1821ED9D00542222 /* FileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 342254AD1821ED9D00542222 /* FileLogger.m */; };
 		3430E9031820910200780909 /* SleepMessageReciever.m in Sources */ = {isa = PBXBuildFile; fileRef = 3430E9021820910200780909 /* SleepMessageReciever.m */; };
 		3430E9051820947B00780909 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3430E9041820947B00780909 /* AppKit.framework */; };
+		3469B5F518330F3A00CB28F5 /* ShutdownMessageReceiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 3469B5F418330F3A00CB28F5 /* ShutdownMessageReceiver.m */; };
+		3469B5F81834637B00CB28F5 /* ScreenSleepMessageReceiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 3469B5F71834637B00CB28F5 /* ScreenSleepMessageReceiver.m */; };
+		3469B5FB183467A200CB28F5 /* NetworkLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 3469B5FA183467A200CB28F5 /* NetworkLogger.m */; };
 		3499CEFF18208FA80017757C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3499CEFE18208FA80017757C /* Foundation.framework */; };
 		3499CF0218208FA80017757C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3499CF0118208FA80017757C /* main.m */; };
 		3499CF0618208FA80017757C /* PowerLogger.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3499CF0518208FA80017757C /* PowerLogger.1 */; };
@@ -28,9 +32,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		342254AB1821ED7E00542222 /* FileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileLogger.h; sourceTree = "<group>"; };
+		342254AD1821ED9D00542222 /* FileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileLogger.m; sourceTree = "<group>"; };
 		3430E9011820910200780909 /* SleepMessageReciever.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepMessageReciever.h; sourceTree = "<group>"; };
 		3430E9021820910200780909 /* SleepMessageReciever.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepMessageReciever.m; sourceTree = "<group>"; };
 		3430E9041820947B00780909 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		3469B5F218330DA200CB28F5 /* MessageReciever.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageReciever.h; sourceTree = "<group>"; };
+		3469B5F318330F3A00CB28F5 /* ShutdownMessageReceiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShutdownMessageReceiver.h; sourceTree = "<group>"; };
+		3469B5F418330F3A00CB28F5 /* ShutdownMessageReceiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShutdownMessageReceiver.m; sourceTree = "<group>"; };
+		3469B5F61834637B00CB28F5 /* ScreenSleepMessageReceiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenSleepMessageReceiver.h; sourceTree = "<group>"; };
+		3469B5F71834637B00CB28F5 /* ScreenSleepMessageReceiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenSleepMessageReceiver.m; sourceTree = "<group>"; };
+		3469B5F9183467A200CB28F5 /* NetworkLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkLogger.h; sourceTree = "<group>"; };
+		3469B5FA183467A200CB28F5 /* NetworkLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkLogger.m; sourceTree = "<group>"; };
+		3469B5FC183467AF00CB28F5 /* Logger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
 		3499CEFB18208FA80017757C /* PowerLogger */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PowerLogger; sourceTree = BUILT_PRODUCTS_DIR; };
 		3499CEFE18208FA80017757C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3499CF0118208FA80017757C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -51,11 +65,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		342254A71821E44E00542222 /* Loggers */ = {
+			isa = PBXGroup;
+			children = (
+				342254AB1821ED7E00542222 /* FileLogger.h */,
+				342254AD1821ED9D00542222 /* FileLogger.m */,
+				3469B5F9183467A200CB28F5 /* NetworkLogger.h */,
+				3469B5FA183467A200CB28F5 /* NetworkLogger.m */,
+				3469B5FC183467AF00CB28F5 /* Logger.h */,
+			);
+			name = Loggers;
+			sourceTree = "<group>";
+		};
+		342254AC1821ED8E00542222 /* Logs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Logs;
+			sourceTree = "<group>";
+		};
 		3430E9001820909900780909 /* MessageReciever */ = {
 			isa = PBXGroup;
 			children = (
 				3430E9011820910200780909 /* SleepMessageReciever.h */,
 				3430E9021820910200780909 /* SleepMessageReciever.m */,
+				3469B5F218330DA200CB28F5 /* MessageReciever.h */,
+				3469B5F318330F3A00CB28F5 /* ShutdownMessageReceiver.h */,
+				3469B5F418330F3A00CB28F5 /* ShutdownMessageReceiver.m */,
+				3469B5F61834637B00CB28F5 /* ScreenSleepMessageReceiver.h */,
+				3469B5F71834637B00CB28F5 /* ScreenSleepMessageReceiver.m */,
 			);
 			name = MessageReciever;
 			sourceTree = "<group>";
@@ -89,6 +127,8 @@
 		3499CF0018208FA80017757C /* PowerLogger */ = {
 			isa = PBXGroup;
 			children = (
+				342254AC1821ED8E00542222 /* Logs */,
+				342254A71821E44E00542222 /* Loggers */,
 				3430E9001820909900780909 /* MessageReciever */,
 				3499CF0118208FA80017757C /* main.m */,
 				3499CF0518208FA80017757C /* PowerLogger.1 */,
@@ -158,6 +198,10 @@
 			files = (
 				3430E9031820910200780909 /* SleepMessageReciever.m in Sources */,
 				3499CF0218208FA80017757C /* main.m in Sources */,
+				3469B5F518330F3A00CB28F5 /* ShutdownMessageReceiver.m in Sources */,
+				3469B5F81834637B00CB28F5 /* ScreenSleepMessageReceiver.m in Sources */,
+				3469B5FB183467A200CB28F5 /* NetworkLogger.m in Sources */,
+				342254AE1821ED9D00542222 /* FileLogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

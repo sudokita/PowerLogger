@@ -13,11 +13,13 @@
 #import <Foundation/Foundation.h>
 #import <AppKit/AppKit.h>
 
-@interface SleepMessageReciever : NSObject
-@property(atomic, getter = isAsleep) BOOL asleep;
+#import "MessageReciever.h"
 
-- (void)receiveSleepMessage: (NSNotification *)message;
-- (void)receiveWakeMessage: (NSNotification *)message;
+@interface SleepMessageReciever : NSObject <MessageReciever>
+//@property(atomic, getter = isAsleep) BOOL asleep;
+
+- (void)receiveSleepMessage:(NSNotification *)message;
+- (void)receiveWakeMessage:(NSNotification *)message;
 - (void)initializeObservers;
 
 @end
