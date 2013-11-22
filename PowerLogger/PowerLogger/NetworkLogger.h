@@ -7,9 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AFHTTPRequestOperationManager.h"
 
 @interface NetworkLogger : NSObject
 
+@property(strong, nonatomic) AFHTTPRequestOperationManager * manager;
+
 + (instancetype)defaultLogger;
+- (NSString *)transitionMessageWithCurrentState: (NSString *)currentState
+                             AndTransitionState: (NSString *)transitionState;
+- (void)logToServerTime: (NSString *)time State: (NSString *)state Transition: (NSString *)transition;
 
 @end

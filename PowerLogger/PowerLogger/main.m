@@ -7,19 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SleepMessageReciever.h"
+#import "MessageController.h"
 
 int main(int argc, const char * argv[])
 {
 
     @autoreleasepool {
+        MessageController * controller = [[MessageController alloc] init];
         
-        SleepMessageReciever * smr = [[SleepMessageReciever alloc] init];
-        [smr initializeObservers];
-        
-        // very, very important... 
+        [controller registerMessageObservers];
         [[NSRunLoop currentRunLoop] run];
-        
     }
     return 0;
 }

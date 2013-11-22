@@ -8,18 +8,28 @@
 
 #import <AppKit/AppKit.h>
 #import "ScreenSleepMessageReceiver.h"
+#import "State.h"
+#import "NetworkLogger.h"
 
 @implementation ScreenSleepMessageReceiver
 
 - (void)receiveScreenSleep:(NSNotification *)message
 {
-    NSLog(@"Retrieved Screen sleep message: %@", [message name]);
+    NSString * time = [[State defaultState] currentTime];
+    NSString * state = @"DISPLAY_SLEEP";
+    NSString * transition = [[NetworkLogger defaultLogger] transitionMessageWithCurrentState:[[State defaultState] displayState]AndTransitionState: state];
+    [[State defaultState] setDisplayState:state];
+    [[NetworkLogger defaultLogger] logToServerTime:time State:state Transition:transition];
     
 }
 
 - (void)receiveScreenWake: (NSNotification *)message
 {
-    NSLog(@"Retrieved Screen wake message: %@", [message name]);
+    NSString * time = [[State defaultState] currentTime];
+    NSString * state = @"DISPLAY_WAKE";
+    NSString * transition = [[NetworkLogger defaultLogger] transitionMessageWithCurrentState:[[State defaultState] displayState]AndTransitionState: state];
+    [[State defaultState] setDisplayState:state];
+    [[NetworkLogger defaultLogger] logToServerTime:time State:state Transition:transition];
 }
 
 - (void)initializeObservers

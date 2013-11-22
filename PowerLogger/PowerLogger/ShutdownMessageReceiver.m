@@ -8,15 +8,18 @@
 
 #import "ShutdownMessageReceiver.h"
 #import <AppKit/AppKit.h>
-
-#import "FileLogger.h"
+#import "State.h"
+#import "NetworkLogger.h"
 
 @implementation ShutdownMessageReceiver 
 
 - (void)receiveShutDown:(NSNotification *)message
 {
-    NSLog(@"Retrieved Shutdown message: %@", [message name]);
-    [[FileLogger defaultLogger] logEvent:@"Shutdown"];
+    NSString * time = [[State defaultState] currentTime];
+    NSString * state = @"SHUTDOWN";
+    NSString * transition = [[NetworkLogger defaultLogger] transitionMessageWithCurrentState:[[State defaultState] computerState]AndTransitionState: state];
+    [[State defaultState] setComputerState:state];
+    [[NetworkLogger defaultLogger] logToServerTime:time State:state Transition:transition];
 }
 
 - (void)initializeObservers

@@ -8,21 +8,29 @@
 
 #import "SleepMessageReciever.h"
 #import "FileLogger.h"
+#import "State.h"
+#import "NetworkLogger.h"
 
 @implementation SleepMessageReciever
 
-
-
 - (void)receiveSleepMessage:(NSNotification *)message
 {
-    NSLog(@"received Sleep Message: %@", [message name]);
-    [[FileLogger defaultLogger] logEvent:@"SLEEP"];
+    NSString * time = [[State defaultState] currentTime];
+    NSString * state = @"SLEEP";
+    NSString * transition = [[NetworkLogger defaultLogger] transitionMessageWithCurrentState:[[State defaultState] computerState]AndTransitionState: state];
+    [[State defaultState] setComputerState:state];
+    
+    [[NetworkLogger defaultLogger] logToServerTime:time State:state Transition:transition];
+    
 }
 
 - (void)receiveWakeMessage:(NSNotification *)message
 {
-    NSLog(@"Reveived Wake Message: %@", [message name]);
-    [[FileLogger defaultLogger] logEvent:@"AWAKE"];
+    NSString * time = [[State defaultState] currentTime];
+    NSString * state = @"WAKE";
+    NSString * transition = [[NetworkLogger defaultLogger] transitionMessageWithCurrentState:[[State defaultState] computerState]AndTransitionState: state];
+    [[State defaultState] setComputerState:state];
+    [[NetworkLogger defaultLogger] logToServerTime:time State:state Transition:transition];
 }
 
 - (void)initializeObservers
