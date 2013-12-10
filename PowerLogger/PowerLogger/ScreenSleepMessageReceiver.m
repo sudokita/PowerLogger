@@ -13,6 +13,11 @@
 
 @implementation ScreenSleepMessageReceiver
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)receiveScreenSleep:(NSNotification *)message
 {
     NSString * time = [[State defaultState] currentTime];
@@ -28,7 +33,7 @@
     NSString * time = [[State defaultState] currentTime];
     NSString * state = @"DISPLAY_WAKE";
     NSString * transition = [[NetworkLogger defaultLogger] transitionMessageWithCurrentState:[[State defaultState] displayState]AndTransitionState: state];
-    [[State defaultState] setDisplayState:state];
+    [[State defaultState] setDisplayState: state];
     [[NetworkLogger defaultLogger] logToServerTime:time State:state Transition:transition];
 }
 

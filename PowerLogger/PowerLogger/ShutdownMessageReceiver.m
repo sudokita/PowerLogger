@@ -13,6 +13,11 @@
 
 @implementation ShutdownMessageReceiver 
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)receiveShutDown:(NSNotification *)message
 {
     NSString * time = [[State defaultState] currentTime];

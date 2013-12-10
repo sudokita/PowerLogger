@@ -13,6 +13,11 @@
 
 @implementation SleepMessageReciever
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)receiveSleepMessage:(NSNotification *)message
 {
     NSString * time = [[State defaultState] currentTime];

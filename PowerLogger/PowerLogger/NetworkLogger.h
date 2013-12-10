@@ -19,3 +19,6 @@
 - (void)logToServerTime: (NSString *)time State: (NSString *)state Transition: (NSString *)transition;
 
 @end
+
+extern NSString * const TransitionWasSuccessfullyLoggedToNetworkNotification;
+extern NSString * const TransitionWasNotSuccessfullyLoggedToNetworkNotification;

@@ -45,17 +45,21 @@ static NSString * server = @"http://catmouse.calit2.uci.edu/power_logger/";
                   State:(NSString *)state
              Transition:(NSString *)transition
 {
-    NSDictionary * data = @{@"time": time,
-                            @"state": state,
-                            @"transition" : transition,
-                            @"macaddress" : [[State defaultState]getMacaddress]
+    NSDictionary * data = @{@"time"         : time,
+                            @"state"        : state,
+                            @"transition"   : transition,
+                            @"macaddress"   : [[State defaultState] getMacaddress],
+                            @"mem_stats"    : [[State defaultState] getCurrentMemoryUsage]
                             };
+    
     [[self manager] POST:@"log.php" parameters:data success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
     }];
 }
-
-
 @end
+
+NSString * const TransitionWasSuccessfullyLoggedToNetworkNotification = @"TransitionWasSuccessfullyLoggedToNetworkNotification";
+
+NSString * const TransitionWasNotSuccessfullyLoggedToNetworkNotification = @"TransitionWasNotSuccessfullyLoggedToNetworkNotification";

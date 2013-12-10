@@ -1,4 +1,5 @@
 <?php
+
 include_once 'db_connector.php';
 include_once 'http_responder.php';
 
@@ -6,20 +7,23 @@ include_once 'http_responder.php';
 		isset($_POST['state']) && isset($_POST['macaddress']))
 	{
 		$collection_mac = trim((string)$_POST['macaddress']);
+		$macCollection = str_replace(":", "", $collection_mac);
 		$state = trim((string)$_POST['state']);
 		$transition = trim((string)$_POST['transition']);
 		$time = trim((string)$_POST['time']);
+		$mem = $_POST['mem_stats'];
 
 		$conn = new DbConnector();
 		$db = $conn->connection();
 
-		$collection = $db->selectCollection($collection_mac);
-
 		$log = array(
 				'time' => $time,
 				'state' => $state,
-				'transition' => $transition
+				'transition' => $transition,
+				'mem_stats' => $mem
 			);
+
+		$collection = $db->selectCollection($macCollection);
 
 		$success = $collection->insert($log);
 		$message = "Log was not inserted.";

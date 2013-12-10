@@ -17,7 +17,7 @@
 
 + (instancetype)defaultState;
 - (NSString *)getMacaddress;
-
+- (NSString *)getCurrentMemoryUsage;
 - (NSString *)currentTime;
 
 @end
